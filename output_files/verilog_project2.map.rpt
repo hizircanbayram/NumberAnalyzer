@@ -1,5 +1,5 @@
 Analysis & Synthesis report for verilog_project2
-Sun Jun 07 05:48:57 2020
+Sun Jun 07 23:07:47 2020
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -13,13 +13,12 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |isEvenNumber|currentState
-  9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
+  8. State Machine - |isFibonacci|currentState
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
  11. General Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Elapsed Time Per Partition
- 14. Analysis & Synthesis Messages
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -45,16 +44,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Jun 07 05:48:57 2020           ;
+; Analysis & Synthesis Status        ; Successful - Sun Jun 07 23:07:47 2020           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; verilog_project2                                ;
-; Top-level Entity Name              ; isEvenNumber                                    ;
+; Top-level Entity Name              ; isFibonacci                                     ;
 ; Family                             ; Cyclone III                                     ;
-; Total logic elements               ; 3                                               ;
-;     Total combinational functions  ; 3                                               ;
-;     Dedicated logic registers      ; 3                                               ;
-; Total registers                    ; 3                                               ;
-; Total pins                         ; 36                                              ;
+; Total logic elements               ; 296                                             ;
+;     Total combinational functions  ; 296                                             ;
+;     Dedicated logic registers      ; 9                                               ;
+; Total registers                    ; 9                                               ;
+; Total pins                         ; 40                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -68,7 +67,7 @@ applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; EP3C16F484C6       ;                    ;
-; Top-level entity name                                                      ; isEvenNumber       ; verilog_project2   ;
+; Top-level entity name                                                      ; isFibonacci        ; verilog_project2   ;
 ; Family name                                                                ; Cyclone III        ; Cyclone IV GX      ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -165,38 +164,38 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+------------------------+----------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                       ; Library ;
 +----------------------------------+-----------------+------------------------+----------------------------------------------------+---------+
-; isEvenNumber.v                   ; yes             ; User Verilog HDL File  ; C:/altera/13.0sp1/projects/project2/isEvenNumber.v ;         ;
+; isFibonacci.v                    ; yes             ; User Verilog HDL File  ; C:/Users/DELL/Desktop/NumberAnalyzer/isFibonacci.v ;         ;
 +----------------------------------+-----------------+------------------------+----------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 3           ;
-;                                             ;             ;
-; Total combinational functions               ; 3           ;
-; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 1           ;
-;     -- 3 input functions                    ; 2           ;
-;     -- <=2 input functions                  ; 0           ;
-;                                             ;             ;
-; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 3           ;
-;     -- arithmetic mode                      ; 0           ;
-;                                             ;             ;
-; Total registers                             ; 3           ;
-;     -- Dedicated logic registers            ; 3           ;
-;     -- I/O registers                        ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 36          ;
-; Embedded Multiplier 9-bit elements          ; 0           ;
-; Maximum fan-out node                        ; reset~input ;
-; Maximum fan-out                             ; 3           ;
-; Total fan-out                               ; 53          ;
-; Average fan-out                             ; 0.68        ;
-+---------------------------------------------+-------------+
++--------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                        ;
++---------------------------------------------+----------------------+
+; Resource                                    ; Usage                ;
++---------------------------------------------+----------------------+
+; Estimated Total logic elements              ; 296                  ;
+;                                             ;                      ;
+; Total combinational functions               ; 296                  ;
+; Logic element usage by number of LUT inputs ;                      ;
+;     -- 4 input functions                    ; 27                   ;
+;     -- 3 input functions                    ; 162                  ;
+;     -- <=2 input functions                  ; 107                  ;
+;                                             ;                      ;
+; Logic elements by mode                      ;                      ;
+;     -- normal mode                          ; 234                  ;
+;     -- arithmetic mode                      ; 62                   ;
+;                                             ;                      ;
+; Total registers                             ; 9                    ;
+;     -- Dedicated logic registers            ; 9                    ;
+;     -- I/O registers                        ; 0                    ;
+;                                             ;                      ;
+; I/O pins                                    ; 40                   ;
+; Embedded Multiplier 9-bit elements          ; 0                    ;
+; Maximum fan-out node                        ; currentState.STATE_3 ;
+; Maximum fan-out                             ; 36                   ;
+; Total fan-out                               ; 871                  ;
+; Average fan-out                             ; 2.26                 ;
++---------------------------------------------+----------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -204,22 +203,134 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |isEvenNumber              ; 3 (3)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 36   ; 0            ; |isEvenNumber       ; work         ;
+; |isFibonacci               ; 296 (296)         ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 40   ; 0            ; |isFibonacci        ; work         ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
-+------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |isEvenNumber|currentState                                                                                   ;
-+----------------------------+----------------------+----------------------+----------------------+----------------------------+
-; Name                       ; currentState.STATE_3 ; currentState.STATE_2 ; currentState.STATE_1 ; currentState.STATE_Initial ;
-+----------------------------+----------------------+----------------------+----------------------+----------------------------+
-; currentState.STATE_Initial ; 0                    ; 0                    ; 0                    ; 0                          ;
-; currentState.STATE_1       ; 0                    ; 0                    ; 1                    ; 1                          ;
-; currentState.STATE_2       ; 0                    ; 1                    ; 0                    ; 1                          ;
-; currentState.STATE_3       ; 1                    ; 0                    ; 0                    ; 1                          ;
-+----------------------------+----------------------+----------------------+----------------------+----------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |isFibonacci|currentState                                                                                                                                                                                                       ;
++----------------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------------+----------------------+
+; Name                       ; currentState.STATE_7 ; currentState.STATE_6 ; currentState.STATE_5 ; currentState.STATE_4 ; currentState.STATE_3 ; currentState.STATE_2 ; currentState.STATE_1 ; currentState.STATE_Initial ; currentState.STATE_8 ;
++----------------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------------+----------------------+
+; currentState.STATE_Initial ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                          ; 0                    ;
+; currentState.STATE_1       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 1                          ; 0                    ;
+; currentState.STATE_2       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 1                          ; 0                    ;
+; currentState.STATE_3       ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 1                          ; 0                    ;
+; currentState.STATE_4       ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 1                          ; 0                    ;
+; currentState.STATE_5       ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                          ; 0                    ;
+; currentState.STATE_6       ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                          ; 0                    ;
+; currentState.STATE_7       ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                          ; 0                    ;
+; currentState.STATE_8       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                          ; 1                    ;
++----------------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------------+----------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; result$latch                                        ; WideOr13            ; yes                    ;
+; res[0]                                              ; WideOr12            ; yes                    ;
+; res[1]                                              ; WideOr12            ; yes                    ;
+; res[2]                                              ; WideOr12            ; yes                    ;
+; res[3]                                              ; WideOr12            ; yes                    ;
+; res[4]                                              ; WideOr12            ; yes                    ;
+; res[5]                                              ; WideOr12            ; yes                    ;
+; res[6]                                              ; WideOr12            ; yes                    ;
+; res[7]                                              ; WideOr12            ; yes                    ;
+; res[8]                                              ; WideOr12            ; yes                    ;
+; res[9]                                              ; WideOr12            ; yes                    ;
+; res[10]                                             ; WideOr12            ; yes                    ;
+; res[11]                                             ; WideOr12            ; yes                    ;
+; res[12]                                             ; WideOr12            ; yes                    ;
+; res[13]                                             ; WideOr12            ; yes                    ;
+; res[14]                                             ; WideOr12            ; yes                    ;
+; res[15]                                             ; WideOr12            ; yes                    ;
+; res[16]                                             ; WideOr12            ; yes                    ;
+; res[17]                                             ; WideOr12            ; yes                    ;
+; res[18]                                             ; WideOr12            ; yes                    ;
+; res[19]                                             ; WideOr12            ; yes                    ;
+; res[20]                                             ; WideOr12            ; yes                    ;
+; res[21]                                             ; WideOr12            ; yes                    ;
+; res[22]                                             ; WideOr12            ; yes                    ;
+; res[23]                                             ; WideOr12            ; yes                    ;
+; res[24]                                             ; WideOr12            ; yes                    ;
+; res[25]                                             ; WideOr12            ; yes                    ;
+; res[26]                                             ; WideOr12            ; yes                    ;
+; res[27]                                             ; WideOr12            ; yes                    ;
+; res[28]                                             ; WideOr12            ; yes                    ;
+; res[29]                                             ; WideOr12            ; yes                    ;
+; res[30]                                             ; WideOr12            ; yes                    ;
+; res[31]                                             ; WideOr12            ; yes                    ;
+; fib1[0]                                             ; WideOr10            ; yes                    ;
+; fib2[0]                                             ; WideOr11            ; yes                    ;
+; fib1[1]                                             ; WideOr10            ; yes                    ;
+; fib2[1]                                             ; WideOr11            ; yes                    ;
+; fib1[2]                                             ; WideOr10            ; yes                    ;
+; fib2[2]                                             ; WideOr11            ; yes                    ;
+; fib1[3]                                             ; WideOr10            ; yes                    ;
+; fib2[3]                                             ; WideOr11            ; yes                    ;
+; fib1[4]                                             ; WideOr10            ; yes                    ;
+; fib2[4]                                             ; WideOr11            ; yes                    ;
+; fib1[5]                                             ; WideOr10            ; yes                    ;
+; fib2[5]                                             ; WideOr11            ; yes                    ;
+; fib1[6]                                             ; WideOr10            ; yes                    ;
+; fib2[6]                                             ; WideOr11            ; yes                    ;
+; fib1[7]                                             ; WideOr10            ; yes                    ;
+; fib2[7]                                             ; WideOr11            ; yes                    ;
+; fib1[8]                                             ; WideOr10            ; yes                    ;
+; fib2[8]                                             ; WideOr11            ; yes                    ;
+; fib1[9]                                             ; WideOr10            ; yes                    ;
+; fib2[9]                                             ; WideOr11            ; yes                    ;
+; fib1[10]                                            ; WideOr10            ; yes                    ;
+; fib2[10]                                            ; WideOr11            ; yes                    ;
+; fib1[11]                                            ; WideOr10            ; yes                    ;
+; fib2[11]                                            ; WideOr11            ; yes                    ;
+; fib1[12]                                            ; WideOr10            ; yes                    ;
+; fib2[12]                                            ; WideOr11            ; yes                    ;
+; fib1[13]                                            ; WideOr10            ; yes                    ;
+; fib2[13]                                            ; WideOr11            ; yes                    ;
+; fib1[14]                                            ; WideOr10            ; yes                    ;
+; fib2[14]                                            ; WideOr11            ; yes                    ;
+; fib1[15]                                            ; WideOr10            ; yes                    ;
+; fib2[15]                                            ; WideOr11            ; yes                    ;
+; fib1[16]                                            ; WideOr10            ; yes                    ;
+; fib2[16]                                            ; WideOr11            ; yes                    ;
+; fib1[17]                                            ; WideOr10            ; yes                    ;
+; fib2[17]                                            ; WideOr11            ; yes                    ;
+; fib1[18]                                            ; WideOr10            ; yes                    ;
+; fib2[18]                                            ; WideOr11            ; yes                    ;
+; fib1[19]                                            ; WideOr10            ; yes                    ;
+; fib2[19]                                            ; WideOr11            ; yes                    ;
+; fib1[20]                                            ; WideOr10            ; yes                    ;
+; fib2[20]                                            ; WideOr11            ; yes                    ;
+; fib1[21]                                            ; WideOr10            ; yes                    ;
+; fib2[21]                                            ; WideOr11            ; yes                    ;
+; fib1[22]                                            ; WideOr10            ; yes                    ;
+; fib2[22]                                            ; WideOr11            ; yes                    ;
+; fib1[23]                                            ; WideOr10            ; yes                    ;
+; fib2[23]                                            ; WideOr11            ; yes                    ;
+; fib1[24]                                            ; WideOr10            ; yes                    ;
+; fib2[24]                                            ; WideOr11            ; yes                    ;
+; fib1[25]                                            ; WideOr10            ; yes                    ;
+; fib2[25]                                            ; WideOr11            ; yes                    ;
+; fib1[26]                                            ; WideOr10            ; yes                    ;
+; fib2[26]                                            ; WideOr11            ; yes                    ;
+; fib1[27]                                            ; WideOr10            ; yes                    ;
+; fib2[27]                                            ; WideOr11            ; yes                    ;
+; fib1[28]                                            ; WideOr10            ; yes                    ;
+; fib2[28]                                            ; WideOr11            ; yes                    ;
+; fib1[29]                                            ; WideOr10            ; yes                    ;
+; fib2[29]                                            ; WideOr11            ; yes                    ;
+; fib1[30]                                            ; WideOr10            ; yes                    ;
+; fib2[30]                                            ; WideOr11            ; yes                    ;
+; fib1[31]                                            ; WideOr10            ; yes                    ;
+; fib2[31]                                            ; WideOr11            ; yes                    ;
+; Number of user-specified and inferred latches = 97  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------------+
@@ -229,18 +340,9 @@ Encoding Type:  One-Hot
 +---------------------------------------+--------------------+
 ; currentState~2                        ; Lost fanout        ;
 ; currentState~3                        ; Lost fanout        ;
-; currentState.STATE_3                  ; Lost fanout        ;
+; currentState~4                        ; Lost fanout        ;
 ; Total Number of Removed Registers = 3 ;                    ;
 +---------------------------------------+--------------------+
-
-
-+------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                  ;
-+----------------+--------------------+----------------------------------------+
-; Register name  ; Reason for Removal ; Registers Removed due to This Register ;
-+----------------+--------------------+----------------------------------------+
-; currentState~2 ; Lost Fanouts       ; currentState.STATE_3                   ;
-+----------------+--------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -248,7 +350,7 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 3     ;
+; Total registers                              ; 9     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -256,15 +358,6 @@ Encoding Type:  One-Hot
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |isEvenNumber|currentState ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
 +-------------------------------+
@@ -282,58 +375,325 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sun Jun 07 05:48:55 2020
+    Info: Processing started: Sun Jun 07 23:07:46 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off verilog_project2 -c verilog_project2
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file isevennumber.v
     Info (12023): Found entity 1: isEvenNumber
 Info (12021): Found 1 design units, including 1 entities, in source file isevennumbertestbench.v
     Info (12023): Found entity 1: isEvenNumberTestBench
-Info (12127): Elaborating entity "isEvenNumber" for the top level hierarchy
+Info (12021): Found 1 design units, including 1 entities, in source file isfibonacci.v
+    Info (12023): Found entity 1: isFibonacci
+Info (12021): Found 1 design units, including 1 entities, in source file isfibonaccitestbench.v
+    Info (12023): Found entity 1: isFibonacciTestBench
+Info (12127): Elaborating entity "isFibonacci" for the top level hierarchy
+Warning (10240): Verilog HDL Always Construct warning at isFibonacci.v(41): inferring latch(es) for variable "fib1", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at isFibonacci.v(41): inferring latch(es) for variable "fib2", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at isFibonacci.v(41): inferring latch(es) for variable "res", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at isFibonacci.v(41): inferring latch(es) for variable "result", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "result" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[0]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[1]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[2]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[3]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[4]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[5]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[6]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[7]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[8]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[9]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[10]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[11]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[12]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[13]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[14]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[15]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[16]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[17]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[18]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[19]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[20]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[21]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[22]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[23]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[24]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[25]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[26]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[27]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[28]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[29]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[30]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[31]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[0]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[1]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[2]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[3]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[4]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[5]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[6]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[7]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[8]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[9]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[10]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[11]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[12]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[13]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[14]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[15]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[16]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[17]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[18]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[19]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[20]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[21]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[22]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[23]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[24]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[25]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[26]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[27]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[28]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[29]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[30]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[31]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[0]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[1]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[2]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[3]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[4]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[5]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[6]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[7]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[8]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[9]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[10]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[11]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[12]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[13]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[14]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[15]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[16]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[17]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[18]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[19]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[20]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[21]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[22]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[23]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[24]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[25]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[26]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[27]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[28]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[29]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[30]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[31]" at isFibonacci.v(41)
+Warning (13012): Latch result$latch has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
+Warning (13012): Latch res[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[9] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[10] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[11] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[12] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[13] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[14] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[15] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[16] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[17] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[18] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[19] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[20] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[21] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[22] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[23] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[24] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[25] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[26] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[27] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[28] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[29] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[30] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch res[31] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
+Warning (13012): Latch fib1[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[9] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[9] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[10] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[10] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[11] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[11] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[12] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[12] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[13] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[13] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[14] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[14] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[15] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[15] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[16] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[16] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[17] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[17] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[18] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[18] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[19] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[19] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[20] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[20] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[21] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[21] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[22] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[22] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[23] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[23] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[24] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[24] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[25] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[25] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[26] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[26] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[27] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[27] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[28] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[28] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[29] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[29] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[30] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[30] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
+Warning (13012): Latch fib1[31] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_4
+Warning (13012): Latch fib2[31] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_5
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 3 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 31 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "number[1]"
-    Warning (15610): No output dependent on input pin "number[2]"
-    Warning (15610): No output dependent on input pin "number[3]"
-    Warning (15610): No output dependent on input pin "number[4]"
-    Warning (15610): No output dependent on input pin "number[5]"
-    Warning (15610): No output dependent on input pin "number[6]"
-    Warning (15610): No output dependent on input pin "number[7]"
-    Warning (15610): No output dependent on input pin "number[8]"
-    Warning (15610): No output dependent on input pin "number[9]"
-    Warning (15610): No output dependent on input pin "number[10]"
-    Warning (15610): No output dependent on input pin "number[11]"
-    Warning (15610): No output dependent on input pin "number[12]"
-    Warning (15610): No output dependent on input pin "number[13]"
-    Warning (15610): No output dependent on input pin "number[14]"
-    Warning (15610): No output dependent on input pin "number[15]"
-    Warning (15610): No output dependent on input pin "number[16]"
-    Warning (15610): No output dependent on input pin "number[17]"
-    Warning (15610): No output dependent on input pin "number[18]"
-    Warning (15610): No output dependent on input pin "number[19]"
-    Warning (15610): No output dependent on input pin "number[20]"
-    Warning (15610): No output dependent on input pin "number[21]"
-    Warning (15610): No output dependent on input pin "number[22]"
-    Warning (15610): No output dependent on input pin "number[23]"
-    Warning (15610): No output dependent on input pin "number[24]"
-    Warning (15610): No output dependent on input pin "number[25]"
-    Warning (15610): No output dependent on input pin "number[26]"
-    Warning (15610): No output dependent on input pin "number[27]"
-    Warning (15610): No output dependent on input pin "number[28]"
-    Warning (15610): No output dependent on input pin "number[29]"
-    Warning (15610): No output dependent on input pin "number[30]"
-    Warning (15610): No output dependent on input pin "number[31]"
-Info (21057): Implemented 39 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 336 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 35 input pins
-    Info (21059): Implemented 1 output pins
-    Info (21061): Implemented 3 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 33 warnings
-    Info: Peak virtual memory: 4574 megabytes
-    Info: Processing ended: Sun Jun 07 05:48:57 2020
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:01
+    Info (21059): Implemented 5 output pins
+    Info (21061): Implemented 296 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 199 warnings
+    Info: Peak virtual memory: 4573 megabytes
+    Info: Processing ended: Sun Jun 07 23:07:47 2020
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:02
 
 

@@ -1,8 +1,7 @@
 `define CLOCK_TIME 200
 
-module isEvenNumberTestBench();
+module isFibonacciTestBench();
 	wire result;
-	wire[1:0] stuckState;
 	reg[2:0] counter;
 	reg clk;
 	reg reset;
@@ -15,12 +14,12 @@ module isEvenNumberTestBench();
 		clk <= 1'b0;
 		counter <= 3'b000;
 		reset <= 1'b0;
-		number <= 32'b00000000000000000000000010001101;
+		number <= 32'b00000000000000000000000011111011;
 		go_i <= 1'b1;
 	end
 
 	always #`CLOCK_TIME clk <= ~clk;
-	isEvenNumber ien(result, stuckState, clk, reset, go_i, number);
+	isEvenNumber ien(result, clk, reset, go_i, number);
 	// counter'in 0 lanmasi gerekiyor her turdan sonra
 	
 
@@ -37,7 +36,6 @@ module isEvenNumberTestBench();
 			end
 		if (counter <= 3'b100)
 			counter <= counter + 1;		
-		//$display("stuckState : %2d, go_i : %1d, result : %1d",stuckState, go_i, result);
 	end
 	
 endmodule

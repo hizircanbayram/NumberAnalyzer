@@ -1,5 +1,5 @@
 Flow report for verilog_project2
-Sun Jun 07 05:48:57 2020
+Sun Jun 07 23:07:47 2020
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,18 +40,18 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Sun Jun 07 05:48:57 2020           ;
+; Flow Status                        ; Successful - Sun Jun 07 23:07:47 2020           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; verilog_project2                                ;
-; Top-level Entity Name              ; isEvenNumber                                    ;
+; Top-level Entity Name              ; isFibonacci                                     ;
 ; Family                             ; Cyclone III                                     ;
 ; Device                             ; EP3C16F484C6                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 3                                               ;
-;     Total combinational functions  ; 3                                               ;
-;     Dedicated logic registers      ; 3                                               ;
-; Total registers                    ; 3                                               ;
-; Total pins                         ; 36                                              ;
+; Total logic elements               ; 296                                             ;
+;     Total combinational functions  ; 296                                             ;
+;     Dedicated logic registers      ; 9                                               ;
+; Total registers                    ; 9                                               ;
+; Total pins                         ; 40                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -64,29 +64,29 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/07/2020 05:48:56 ;
+; Start date & time ; 06/07/2020 23:07:46 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; verilog_project2    ;
 +-------------------+---------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                         ;
-+-------------------------------------+---------------------------------+------------------+--------------+----------------+
-; Assignment Name                     ; Value                           ; Default Value    ; Entity Name  ; Section Id     ;
-+-------------------------------------+---------------------------------+------------------+--------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 233499638518572.159149813615300 ; --               ; --           ; --             ;
-; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                     ; --               ; --           ; eda_simulation ;
-; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)       ; <None>           ; --           ; --             ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                              ; --               ; --           ; --             ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                               ; --               ; --           ; --             ;
-; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                            ; --               ; --           ; --             ;
-; PARTITION_COLOR                     ; 16764057                        ; --               ; isEvenNumber ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING           ; --               ; isEvenNumber ; Top            ;
-; PARTITION_NETLIST_TYPE              ; SOURCE                          ; --               ; isEvenNumber ; Top            ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                    ; --               ; --           ; --             ;
-; TOP_LEVEL_ENTITY                    ; isEvenNumber                    ; verilog_project2 ; --           ; --             ;
-+-------------------------------------+---------------------------------+------------------+--------------+----------------+
++-------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                        ;
++-------------------------------------+---------------------------------+------------------+-------------+----------------+
+; Assignment Name                     ; Value                           ; Default Value    ; Entity Name ; Section Id     ;
++-------------------------------------+---------------------------------+------------------+-------------+----------------+
+; COMPILER_SIGNATURE_ID               ; 233499638518572.159156046601396 ; --               ; --          ; --             ;
+; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                     ; --               ; --          ; eda_simulation ;
+; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)       ; <None>           ; --          ; --             ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                              ; --               ; --          ; --             ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                               ; --               ; --          ; --             ;
+; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                            ; --               ; --          ; --             ;
+; PARTITION_COLOR                     ; 16764057                        ; --               ; isFibonacci ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING           ; --               ; isFibonacci ; Top            ;
+; PARTITION_NETLIST_TYPE              ; SOURCE                          ; --               ; isFibonacci ; Top            ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                    ; --               ; --          ; --             ;
+; TOP_LEVEL_ENTITY                    ; isFibonacci                     ; verilog_project2 ; --          ; --             ;
++-------------------------------------+---------------------------------+------------------+-------------+----------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -94,8 +94,8 @@ applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:02     ; 1.0                     ; 4564 MB             ; 00:00:01                           ;
-; Total                ; 00:00:02     ; --                      ; --                  ; 00:00:01                           ;
+; Analysis & Synthesis ; 00:00:01     ; 1.0                     ; 4563 MB             ; 00:00:01                           ;
+; Total                ; 00:00:01     ; --                      ; --                  ; 00:00:01                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

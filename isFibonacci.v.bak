@@ -1,6 +1,5 @@
-module isEvenNumber(
+module isFibonacci(
 	output reg result,
-	output reg[1:0] stuckState,
 	//output reg counter,
 	input wire clock,
 	input wire reset,
@@ -12,10 +11,13 @@ localparam STATE_Initial = 2'd0,
 			  STATE_1 = 2'd1,
 			  STATE_2 = 2'd2,
 			  STATE_3 = 2'd3;
+			  STATE_4 = 2'd4;
+			  STATE_5 = 2'd5;
+			  STATE_6 = 2'd6;
+			  STATE_7 = 2'd7;
 			  
-reg[1:0] currentState;
-reg[1:0] nextState;
-
+reg[2:0] currentState;
+reg[2:0] nextState;
 
 always @ (posedge clock) begin
 	if (reset)
@@ -32,11 +34,11 @@ end
 
 always @ (*) begin
 	nextState = currentState;
-	stuckState = currentState;
 	case (currentState)
 		STATE_Initial: begin
 			if (go_i)
 				nextState = STATE_1;
+				result = 1'b0;
 		end
 		STATE_1: begin
 			result = 1'b0;
@@ -47,11 +49,11 @@ always @ (*) begin
 		end
 		STATE_2: begin
 			result = 1'b1;
-			nextState = STATE_Initial;
+			//nextState = STATE_Initial;
 		end
 		STATE_3: begin
 			result = 1'b0;
-			nextState = STATE_Initial;
+			//nextState = STATE_Initial;
 		end
 	endcase
 end
