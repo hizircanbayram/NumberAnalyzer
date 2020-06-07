@@ -1,0 +1,46 @@
+|isEvenNumber
+result <= result.DB_MAX_OUTPUT_PORT_TYPE
+clock => currentState~1.DATAIN
+reset => currentState.OUTPUTSELECT
+reset => currentState.OUTPUTSELECT
+reset => currentState.OUTPUTSELECT
+reset => currentState.OUTPUTSELECT
+go_i => nextState.OUTPUTSELECT
+go_i => nextState.OUTPUTSELECT
+go_i => nextState.OUTPUTSELECT
+go_i => nextState.OUTPUTSELECT
+number[0] => Selector3.IN2
+number[0] => Selector2.IN1
+number[1] => ~NO_FANOUT~
+number[2] => ~NO_FANOUT~
+number[3] => ~NO_FANOUT~
+number[4] => ~NO_FANOUT~
+number[5] => ~NO_FANOUT~
+number[6] => ~NO_FANOUT~
+number[7] => ~NO_FANOUT~
+number[8] => ~NO_FANOUT~
+number[9] => ~NO_FANOUT~
+number[10] => ~NO_FANOUT~
+number[11] => ~NO_FANOUT~
+number[12] => ~NO_FANOUT~
+number[13] => ~NO_FANOUT~
+number[14] => ~NO_FANOUT~
+number[15] => ~NO_FANOUT~
+number[16] => ~NO_FANOUT~
+number[17] => ~NO_FANOUT~
+number[18] => ~NO_FANOUT~
+number[19] => ~NO_FANOUT~
+number[20] => ~NO_FANOUT~
+number[21] => ~NO_FANOUT~
+number[22] => ~NO_FANOUT~
+number[23] => ~NO_FANOUT~
+number[24] => ~NO_FANOUT~
+number[25] => ~NO_FANOUT~
+number[26] => ~NO_FANOUT~
+number[27] => ~NO_FANOUT~
+number[28] => ~NO_FANOUT~
+number[29] => ~NO_FANOUT~
+number[30] => ~NO_FANOUT~
+number[31] => ~NO_FANOUT~
+
+
