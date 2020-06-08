@@ -15,7 +15,7 @@ module isPalindromeTestBench();
 		clk <= 1'b0;
 		counter <= 1'b0;
 		reset <= 1'b0;
-		number <= 32'b00000000000000000000000010110100;
+		number <= 32'b00000000000000000000000010110101;
 		go_i <= 1'b1;
 	end
 

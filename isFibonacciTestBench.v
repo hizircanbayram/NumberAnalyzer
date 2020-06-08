@@ -33,7 +33,7 @@ module isFibonacciTestBench();
 			go_i <= 1'b0;
 			// go_i 0'a atanarak, isEvenNumber'da da state 2 ve 3'den sonra initial state'e gecmesi saglanabilir
 			end		
-		$display("state: %4d, go_i : %1d, result : %1d", stuckState, go_i, result);
+		//$display("state: %4d, go_i : %1d, result : %1d", stuckState, go_i, result);
 	end
 	
 endmodule

@@ -20,7 +20,7 @@ module numberAnalyzerTestBench();
 		counter2 <= 2'b00;
 		counter3 <= 2'b00;
 		reset <= 1'b0;
-		number <= 32'b00000000000000000000011111010010;
+		number <= 32'b00000000000000000000000000110111;
 		go_i <= 1'b1;
 	end
 

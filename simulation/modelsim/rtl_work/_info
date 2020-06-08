@@ -20,7 +20,7 @@ Z4 !s92 -vlog01compat -work work +incdir+C:/Users/DELL/Desktop/NumberAnalyzer -O
 !i10b 1
 !s100 _NlHz0a1O0JCEdcXlE3a[3
 !s85 0
-!s108 1591583912.789000
+!s108 1591627248.166000
 !s107 C:/Users/DELL/Desktop/NumberAnalyzer/isEvenNumber.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL/Desktop/NumberAnalyzer|C:/Users/DELL/Desktop/NumberAnalyzer/isEvenNumber.v|
 !s101 -O0
@@ -41,7 +41,7 @@ nis@fibonacci
 !i10b 1
 !s100 5RDZV3K<`ZgS8kk;Lf4J90
 !s85 0
-!s108 1591583912.865000
+!s108 1591627248.278000
 !s107 C:/Users/DELL/Desktop/NumberAnalyzer/isFibonacci.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL/Desktop/NumberAnalyzer|C:/Users/DELL/Desktop/NumberAnalyzer/isFibonacci.v|
 !s101 -O0
@@ -62,7 +62,7 @@ nis@palindrome
 !i10b 1
 !s100 j9a]FmU@O6zi;]h`f8I2?3
 !s85 0
-!s108 1591583912.944000
+!s108 1591627248.373000
 !s107 C:/Users/DELL/Desktop/NumberAnalyzer/isPalindrome.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL/Desktop/NumberAnalyzer|C:/Users/DELL/Desktop/NumberAnalyzer/isPalindrome.v|
 !s101 -O0
@@ -83,17 +83,17 @@ nnumber@analyzer
 !i10b 1
 !s100 @Y??abblGSDJTSQbiG^oa3
 !s85 0
-!s108 1591583913.021000
+!s108 1591627248.486000
 !s107 C:/Users/DELL/Desktop/NumberAnalyzer/numberAnalyzer.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL/Desktop/NumberAnalyzer|C:/Users/DELL/Desktop/NumberAnalyzer/numberAnalyzer.v|
 !s101 -O0
 vnumberAnalyzerTestBench
 !i10b 1
-!s100 K:]6KF:miOTZ5ZGn2i7fI1
-IK@Sm68STQ[OT]=ETP[dWc0
+!s100 :RV`<gn0NVhl:C`OE`O3V1
+I;6aM:amdQjD7D4DZ8afRZ3
 Vj2O0PZR[iFZUJZH3lHQCd1
 R1
-w1591583902
+w1591625463
 8C:/Users/DELL/Desktop/NumberAnalyzer/numberAnalyzerTestBench.v
 FC:/Users/DELL/Desktop/NumberAnalyzer/numberAnalyzerTestBench.v
 L0 3
@@ -101,7 +101,7 @@ R2
 r1
 !s85 0
 31
-!s108 1591583921.141000
+!s108 1591627275.455000
 !s107 C:/Users/DELL/Desktop/NumberAnalyzer/numberAnalyzerTestBench.v|
 !s90 -reportprogress|300|-work|work|C:/Users/DELL/Desktop/NumberAnalyzer/numberAnalyzerTestBench.v|
 !s101 -O0

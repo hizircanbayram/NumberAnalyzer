@@ -1,0 +1,23 @@
+Quartus II Archive log --	C:/Users/DELL/Desktop/NumberAnalyzer/numberAnalyzer.qarlog
+
+Archive:	C:/Users/DELL/Desktop/NumberAnalyzer/numberAnalyzer.qar
+Date:		Mon Jun 08 17:39:42 2020
+Quartus II 64-Bit		13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+
+	=========== Files Selected: ===========
+C:/Users/DELL/Desktop/NumberAnalyzer/assignment_defaults.qdf
+C:/Users/DELL/Desktop/NumberAnalyzer/incremental_db/compiled_partitions/verilog_project2.db_info
+C:/Users/DELL/Desktop/NumberAnalyzer/isEvenNumber.v
+C:/Users/DELL/Desktop/NumberAnalyzer/isEvenNumberTestBench.v
+C:/Users/DELL/Desktop/NumberAnalyzer/isFibonacci.v
+C:/Users/DELL/Desktop/NumberAnalyzer/isFibonacciTestBench.v
+C:/Users/DELL/Desktop/NumberAnalyzer/isPalindrome.v
+C:/Users/DELL/Desktop/NumberAnalyzer/isPalindromeTestBench.v
+C:/Users/DELL/Desktop/NumberAnalyzer/numberAnalyzer.v
+C:/Users/DELL/Desktop/NumberAnalyzer/numberAnalyzerTestBench.v
+C:/Users/DELL/Desktop/NumberAnalyzer/verilog_project2.qpf
+C:/Users/DELL/Desktop/NumberAnalyzer/verilog_project2.qsf
+	======= Total: 12 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

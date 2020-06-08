@@ -63,8 +63,8 @@ sim:/numberAnalyzerTestBench/stuckStateEven \
 sim:/numberAnalyzerTestBench/stuckStateFibonacci \
 sim:/numberAnalyzerTestBench/stuckStatePalindrome
 step -current
-#                             2002 is an even number
-#                             2002 is not a fibonacci number
-#                             2002 is a palindrome number
+#                               55 is an odd number
+#                               55 is a fibonacci number
+#                               55 is a palindrome number
 # Break key hit 
 # Simulation stop requested.
