@@ -1,10 +1,10 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="verilog_project2">
-		<CBX_INST_ENTRY INSTANCE_NAME="|isPalindrome|lpm_divide:Div1" CBX_FILE_NAME="lpm_divide_nhm.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|isPalindrome|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_q9m.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|isPalindrome|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_8jm.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|isPalindrome|lpm_divide:Div2" CBX_FILE_NAME="lpm_divide_qhm.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|isPalindrome|lpm_divide:Mod1" CBX_FILE_NAME="lpm_divide_bbm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|numberAnalyzer|isPalindrome:ipn|lpm_divide:Div1" CBX_FILE_NAME="lpm_divide_nhm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|numberAnalyzer|isPalindrome:ipn|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_q9m.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|numberAnalyzer|isPalindrome:ipn|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_8jm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|numberAnalyzer|isPalindrome:ipn|lpm_divide:Div2" CBX_FILE_NAME="lpm_divide_qhm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|numberAnalyzer|isPalindrome:ipn|lpm_divide:Mod1" CBX_FILE_NAME="lpm_divide_bbm.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

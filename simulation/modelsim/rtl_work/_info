@@ -3,44 +3,107 @@ K3
 13
 cModel Technology
 Z0 dC:\Users\DELL\Desktop\NumberAnalyzer\simulation\modelsim
-visPalindrome
-Igfe8aYldV2eaGez1CeeNQ1
-VST7]M7Dd7hg3@Y=O@QXz:1
+visEvenNumber
+I5Vajn385Hdn8mKQ`GMBiB0
+V9FdcIY:a7VH]M1NL6CeYS2
 Z1 dC:\Users\DELL\Desktop\NumberAnalyzer\simulation\modelsim
-w1591576010
-8C:/Users/DELL/Desktop/NumberAnalyzer/isPalindrome.v
-FC:/Users/DELL/Desktop/NumberAnalyzer/isPalindrome.v
+w1591560143
+8C:/Users/DELL/Desktop/NumberAnalyzer/isEvenNumber.v
+FC:/Users/DELL/Desktop/NumberAnalyzer/isEvenNumber.v
 L0 1
 Z2 OV;L;10.1d;51
 r1
 31
-o-vlog01compat -work work -O0
+Z3 o-vlog01compat -work work -O0
+nis@even@number
+Z4 !s92 -vlog01compat -work work +incdir+C:/Users/DELL/Desktop/NumberAnalyzer -O0
+!i10b 1
+!s100 _NlHz0a1O0JCEdcXlE3a[3
+!s85 0
+!s108 1591583912.789000
+!s107 C:/Users/DELL/Desktop/NumberAnalyzer/isEvenNumber.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL/Desktop/NumberAnalyzer|C:/Users/DELL/Desktop/NumberAnalyzer/isEvenNumber.v|
+!s101 -O0
+visFibonacci
+IkbUQaT159]9O2JzDIQUlH3
+VG_`hn`51E[[Jcek[L?<TI1
+R1
+w1591558315
+8C:/Users/DELL/Desktop/NumberAnalyzer/isFibonacci.v
+FC:/Users/DELL/Desktop/NumberAnalyzer/isFibonacci.v
+L0 1
+R2
+r1
+31
+R3
+R4
+nis@fibonacci
+!i10b 1
+!s100 5RDZV3K<`ZgS8kk;Lf4J90
+!s85 0
+!s108 1591583912.865000
+!s107 C:/Users/DELL/Desktop/NumberAnalyzer/isFibonacci.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL/Desktop/NumberAnalyzer|C:/Users/DELL/Desktop/NumberAnalyzer/isFibonacci.v|
+!s101 -O0
+visPalindrome
+Igfe8aYldV2eaGez1CeeNQ1
+VST7]M7Dd7hg3@Y=O@QXz:1
+R1
+w1591576010
+8C:/Users/DELL/Desktop/NumberAnalyzer/isPalindrome.v
+FC:/Users/DELL/Desktop/NumberAnalyzer/isPalindrome.v
+L0 1
+R2
+r1
+31
+R3
+R4
 nis@palindrome
 !i10b 1
 !s100 j9a]FmU@O6zi;]h`f8I2?3
 !s85 0
-!s108 1591576211.889000
+!s108 1591583912.944000
 !s107 C:/Users/DELL/Desktop/NumberAnalyzer/isPalindrome.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL/Desktop/NumberAnalyzer|C:/Users/DELL/Desktop/NumberAnalyzer/isPalindrome.v|
 !s101 -O0
-!s92 -vlog01compat -work work +incdir+C:/Users/DELL/Desktop/NumberAnalyzer -O0
-visPalindromeTestBench
-!i10b 1
-!s100 WUZXbY;dT`0P1KR^Db9lA1
-I_38MYLDlN^2=9BKW;=9o<0
-V@IZ]iV3g1o54Oo?bXmFn43
+vnumberAnalyzer
+IzPdBOLz4<1m29j]zP@nL13
+V0ig]SG>PJ63QlUW7=^D2X0
 R1
-w1591576202
-8C:/Users/DELL/Desktop/NumberAnalyzer/isPalindromeTestBench.v
-FC:/Users/DELL/Desktop/NumberAnalyzer/isPalindromeTestBench.v
+w1591579185
+8C:/Users/DELL/Desktop/NumberAnalyzer/numberAnalyzer.v
+FC:/Users/DELL/Desktop/NumberAnalyzer/numberAnalyzer.v
+L0 1
+R2
+r1
+31
+R3
+R4
+nnumber@analyzer
+!i10b 1
+!s100 @Y??abblGSDJTSQbiG^oa3
+!s85 0
+!s108 1591583913.021000
+!s107 C:/Users/DELL/Desktop/NumberAnalyzer/numberAnalyzer.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL/Desktop/NumberAnalyzer|C:/Users/DELL/Desktop/NumberAnalyzer/numberAnalyzer.v|
+!s101 -O0
+vnumberAnalyzerTestBench
+!i10b 1
+!s100 K:]6KF:miOTZ5ZGn2i7fI1
+IK@Sm68STQ[OT]=ETP[dWc0
+Vj2O0PZR[iFZUJZH3lHQCd1
+R1
+w1591583902
+8C:/Users/DELL/Desktop/NumberAnalyzer/numberAnalyzerTestBench.v
+FC:/Users/DELL/Desktop/NumberAnalyzer/numberAnalyzerTestBench.v
 L0 3
 R2
 r1
 !s85 0
 31
-!s108 1591576219.774000
-!s107 C:/Users/DELL/Desktop/NumberAnalyzer/isPalindromeTestBench.v|
-!s90 -reportprogress|300|-work|work|C:/Users/DELL/Desktop/NumberAnalyzer/isPalindromeTestBench.v|
+!s108 1591583921.141000
+!s107 C:/Users/DELL/Desktop/NumberAnalyzer/numberAnalyzerTestBench.v|
+!s90 -reportprogress|300|-work|work|C:/Users/DELL/Desktop/NumberAnalyzer/numberAnalyzerTestBench.v|
 !s101 -O0
 o-work work -O0
-nis@palindrome@test@bench
+nnumber@analyzer@test@bench

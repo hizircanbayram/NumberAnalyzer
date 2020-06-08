@@ -1,5 +1,5 @@
 Analysis & Synthesis report for verilog_project2
-Mon Jun 08 03:28:16 2020
+Mon Jun 08 05:04:36 2020
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -13,18 +13,20 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |isPalindrome|currentState
-  9. User-Specified and Inferred Latches
- 10. Registers Removed During Synthesis
- 11. General Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
- 14. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
- 15. Parameter Settings for Inferred Entity Instance: lpm_divide:Div2
- 16. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1
- 17. Parameter Settings for Inferred Entity Instance: lpm_divide:Div1
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
+  8. State Machine - |numberAnalyzer|isPalindrome:ipn|currentState
+  9. State Machine - |numberAnalyzer|isFibonacci:ifn|currentState
+ 10. State Machine - |numberAnalyzer|isEvenNumber:ien|currentState
+ 11. User-Specified and Inferred Latches
+ 12. Registers Removed During Synthesis
+ 13. General Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for Inferred Entity Instance: isPalindrome:ipn|lpm_divide:Div0
+ 16. Parameter Settings for Inferred Entity Instance: isPalindrome:ipn|lpm_divide:Mod0
+ 17. Parameter Settings for Inferred Entity Instance: isPalindrome:ipn|lpm_divide:Div2
+ 18. Parameter Settings for Inferred Entity Instance: isPalindrome:ipn|lpm_divide:Mod1
+ 19. Parameter Settings for Inferred Entity Instance: isPalindrome:ipn|lpm_divide:Div1
+ 20. Elapsed Time Per Partition
+ 21. Analysis & Synthesis Messages
 
 
 
@@ -50,16 +52,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Jun 08 03:28:16 2020           ;
+; Analysis & Synthesis Status        ; Successful - Mon Jun 08 05:04:36 2020           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; verilog_project2                                ;
-; Top-level Entity Name              ; isPalindrome                                    ;
+; Top-level Entity Name              ; numberAnalyzer                                  ;
 ; Family                             ; Cyclone III                                     ;
-; Total logic elements               ; 3,630                                           ;
-;     Total combinational functions  ; 3,630                                           ;
-;     Dedicated logic registers      ; 10                                              ;
-; Total registers                    ; 10                                              ;
-; Total pins                         ; 40                                              ;
+; Total logic elements               ; 3,941                                           ;
+;     Total combinational functions  ; 3,941                                           ;
+;     Dedicated logic registers      ; 23                                              ;
+; Total registers                    ; 23                                              ;
+; Total pins                         ; 48                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -73,7 +75,7 @@ applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; EP3C16F484C6       ;                    ;
-; Top-level entity name                                                      ; isPalindrome       ; verilog_project2   ;
+; Top-level entity name                                                      ; numberAnalyzer     ; verilog_project2   ;
 ; Family name                                                                ; Cyclone III        ; Cyclone IV GX      ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -170,7 +172,10 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                          ; Library ;
 +----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------+---------+
+; isEvenNumber.v                   ; yes             ; User Verilog HDL File        ; C:/Users/DELL/Desktop/NumberAnalyzer/isEvenNumber.v                   ;         ;
+; isFibonacci.v                    ; yes             ; User Verilog HDL File        ; C:/Users/DELL/Desktop/NumberAnalyzer/isFibonacci.v                    ;         ;
 ; isPalindrome.v                   ; yes             ; User Verilog HDL File        ; C:/Users/DELL/Desktop/NumberAnalyzer/isPalindrome.v                   ;         ;
+; numberAnalyzer.v                 ; yes             ; User Verilog HDL File        ; C:/Users/DELL/Desktop/NumberAnalyzer/numberAnalyzer.v                 ;         ;
 ; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
 ; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
 ; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
@@ -191,70 +196,73 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 3,630       ;
-;                                             ;             ;
-; Total combinational functions               ; 3630        ;
-; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 1342        ;
-;     -- 3 input functions                    ; 1601        ;
-;     -- <=2 input functions                  ; 687         ;
-;                                             ;             ;
-; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 2167        ;
-;     -- arithmetic mode                      ; 1463        ;
-;                                             ;             ;
-; Total registers                             ; 10          ;
-;     -- Dedicated logic registers            ; 10          ;
-;     -- I/O registers                        ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 40          ;
-; Embedded Multiplier 9-bit elements          ; 0           ;
-; Maximum fan-out node                        ; divisor[31] ;
-; Maximum fan-out                             ; 73          ;
-; Total fan-out                               ; 11322       ;
-; Average fan-out                             ; 3.04        ;
-+---------------------------------------------+-------------+
++----------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                ;
++---------------------------------------------+------------------------------+
+; Resource                                    ; Usage                        ;
++---------------------------------------------+------------------------------+
+; Estimated Total logic elements              ; 3,941                        ;
+;                                             ;                              ;
+; Total combinational functions               ; 3941                         ;
+; Logic element usage by number of LUT inputs ;                              ;
+;     -- 4 input functions                    ; 1374                         ;
+;     -- 3 input functions                    ; 1767                         ;
+;     -- <=2 input functions                  ; 800                          ;
+;                                             ;                              ;
+; Logic elements by mode                      ;                              ;
+;     -- normal mode                          ; 2416                         ;
+;     -- arithmetic mode                      ; 1525                         ;
+;                                             ;                              ;
+; Total registers                             ; 23                           ;
+;     -- Dedicated logic registers            ; 23                           ;
+;     -- I/O registers                        ; 0                            ;
+;                                             ;                              ;
+; I/O pins                                    ; 48                           ;
+; Embedded Multiplier 9-bit elements          ; 0                            ;
+; Maximum fan-out node                        ; isPalindrome:ipn|divisor[31] ;
+; Maximum fan-out                             ; 73                           ;
+; Total fan-out                               ; 12219                        ;
+; Average fan-out                             ; 3.01                         ;
++---------------------------------------------+------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                     ;
-+----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node             ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                 ; Library Name ;
-+----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |isPalindrome                          ; 3630 (213)        ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 40   ; 0            ; |isPalindrome                                                                                                                       ; work         ;
-;    |lpm_divide:Div0|                   ; 1083 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |isPalindrome|lpm_divide:Div0                                                                                                       ; work         ;
-;       |lpm_divide_8jm:auto_generated|  ; 1083 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |isPalindrome|lpm_divide:Div0|lpm_divide_8jm:auto_generated                                                                         ; work         ;
-;          |sign_div_unsign_9nh:divider| ; 1083 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |isPalindrome|lpm_divide:Div0|lpm_divide_8jm:auto_generated|sign_div_unsign_9nh:divider                                             ; work         ;
-;             |alt_u_div_t8f:divider|    ; 1083 (1082)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |isPalindrome|lpm_divide:Div0|lpm_divide_8jm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_t8f:divider                       ; work         ;
-;                |add_sub_vnc:add_sub_1| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |isPalindrome|lpm_divide:Div0|lpm_divide_8jm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_t8f:divider|add_sub_vnc:add_sub_1 ; work         ;
-;    |lpm_divide:Div1|                   ; 372 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |isPalindrome|lpm_divide:Div1                                                                                                       ; work         ;
-;       |lpm_divide_nhm:auto_generated|  ; 372 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |isPalindrome|lpm_divide:Div1|lpm_divide_nhm:auto_generated                                                                         ; work         ;
-;          |sign_div_unsign_olh:divider| ; 372 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |isPalindrome|lpm_divide:Div1|lpm_divide_nhm:auto_generated|sign_div_unsign_olh:divider                                             ; work         ;
-;             |alt_u_div_r5f:divider|    ; 372 (372)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |isPalindrome|lpm_divide:Div1|lpm_divide_nhm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_r5f:divider                       ; work         ;
-;    |lpm_divide:Div2|                   ; 529 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |isPalindrome|lpm_divide:Div2                                                                                                       ; work         ;
-;       |lpm_divide_qhm:auto_generated|  ; 529 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |isPalindrome|lpm_divide:Div2|lpm_divide_qhm:auto_generated                                                                         ; work         ;
-;          |sign_div_unsign_rlh:divider| ; 529 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |isPalindrome|lpm_divide:Div2|lpm_divide_qhm:auto_generated|sign_div_unsign_rlh:divider                                             ; work         ;
-;             |alt_u_div_16f:divider|    ; 529 (529)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |isPalindrome|lpm_divide:Div2|lpm_divide_qhm:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_16f:divider                       ; work         ;
-;    |lpm_divide:Mod0|                   ; 371 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |isPalindrome|lpm_divide:Mod0                                                                                                       ; work         ;
-;       |lpm_divide_q9m:auto_generated|  ; 371 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |isPalindrome|lpm_divide:Mod0|lpm_divide_q9m:auto_generated                                                                         ; work         ;
-;          |sign_div_unsign_olh:divider| ; 371 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |isPalindrome|lpm_divide:Mod0|lpm_divide_q9m:auto_generated|sign_div_unsign_olh:divider                                             ; work         ;
-;             |alt_u_div_r5f:divider|    ; 371 (371)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |isPalindrome|lpm_divide:Mod0|lpm_divide_q9m:auto_generated|sign_div_unsign_olh:divider|alt_u_div_r5f:divider                       ; work         ;
-;    |lpm_divide:Mod1|                   ; 1062 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |isPalindrome|lpm_divide:Mod1                                                                                                       ; work         ;
-;       |lpm_divide_bbm:auto_generated|  ; 1062 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |isPalindrome|lpm_divide:Mod1|lpm_divide_bbm:auto_generated                                                                         ; work         ;
-;          |sign_div_unsign_9nh:divider| ; 1062 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |isPalindrome|lpm_divide:Mod1|lpm_divide_bbm:auto_generated|sign_div_unsign_9nh:divider                                             ; work         ;
-;             |alt_u_div_t8f:divider|    ; 1062 (1062)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |isPalindrome|lpm_divide:Mod1|lpm_divide_bbm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_t8f:divider                       ; work         ;
-+----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                           ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                    ; Library Name ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |numberAnalyzer                           ; 3941 (0)          ; 23 (0)       ; 0           ; 0            ; 0       ; 0         ; 48   ; 0            ; |numberAnalyzer                                                                                                                                        ; work         ;
+;    |isEvenNumber:ien|                     ; 8 (8)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |numberAnalyzer|isEvenNumber:ien                                                                                                                       ; work         ;
+;    |isFibonacci:ifn|                      ; 295 (295)         ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |numberAnalyzer|isFibonacci:ifn                                                                                                                        ; work         ;
+;    |isPalindrome:ipn|                     ; 3638 (212)        ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |numberAnalyzer|isPalindrome:ipn                                                                                                                       ; work         ;
+;       |lpm_divide:Div0|                   ; 1083 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |numberAnalyzer|isPalindrome:ipn|lpm_divide:Div0                                                                                                       ; work         ;
+;          |lpm_divide_8jm:auto_generated|  ; 1083 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |numberAnalyzer|isPalindrome:ipn|lpm_divide:Div0|lpm_divide_8jm:auto_generated                                                                         ; work         ;
+;             |sign_div_unsign_9nh:divider| ; 1083 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |numberAnalyzer|isPalindrome:ipn|lpm_divide:Div0|lpm_divide_8jm:auto_generated|sign_div_unsign_9nh:divider                                             ; work         ;
+;                |alt_u_div_t8f:divider|    ; 1083 (1082)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |numberAnalyzer|isPalindrome:ipn|lpm_divide:Div0|lpm_divide_8jm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_t8f:divider                       ; work         ;
+;                   |add_sub_vnc:add_sub_1| ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |numberAnalyzer|isPalindrome:ipn|lpm_divide:Div0|lpm_divide_8jm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_t8f:divider|add_sub_vnc:add_sub_1 ; work         ;
+;       |lpm_divide:Div1|                   ; 371 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |numberAnalyzer|isPalindrome:ipn|lpm_divide:Div1                                                                                                       ; work         ;
+;          |lpm_divide_nhm:auto_generated|  ; 371 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |numberAnalyzer|isPalindrome:ipn|lpm_divide:Div1|lpm_divide_nhm:auto_generated                                                                         ; work         ;
+;             |sign_div_unsign_olh:divider| ; 371 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |numberAnalyzer|isPalindrome:ipn|lpm_divide:Div1|lpm_divide_nhm:auto_generated|sign_div_unsign_olh:divider                                             ; work         ;
+;                |alt_u_div_r5f:divider|    ; 371 (371)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |numberAnalyzer|isPalindrome:ipn|lpm_divide:Div1|lpm_divide_nhm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_r5f:divider                       ; work         ;
+;       |lpm_divide:Div2|                   ; 541 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |numberAnalyzer|isPalindrome:ipn|lpm_divide:Div2                                                                                                       ; work         ;
+;          |lpm_divide_qhm:auto_generated|  ; 541 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |numberAnalyzer|isPalindrome:ipn|lpm_divide:Div2|lpm_divide_qhm:auto_generated                                                                         ; work         ;
+;             |sign_div_unsign_rlh:divider| ; 541 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |numberAnalyzer|isPalindrome:ipn|lpm_divide:Div2|lpm_divide_qhm:auto_generated|sign_div_unsign_rlh:divider                                             ; work         ;
+;                |alt_u_div_16f:divider|    ; 541 (541)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |numberAnalyzer|isPalindrome:ipn|lpm_divide:Div2|lpm_divide_qhm:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_16f:divider                       ; work         ;
+;       |lpm_divide:Mod0|                   ; 371 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |numberAnalyzer|isPalindrome:ipn|lpm_divide:Mod0                                                                                                       ; work         ;
+;          |lpm_divide_q9m:auto_generated|  ; 371 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |numberAnalyzer|isPalindrome:ipn|lpm_divide:Mod0|lpm_divide_q9m:auto_generated                                                                         ; work         ;
+;             |sign_div_unsign_olh:divider| ; 371 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |numberAnalyzer|isPalindrome:ipn|lpm_divide:Mod0|lpm_divide_q9m:auto_generated|sign_div_unsign_olh:divider                                             ; work         ;
+;                |alt_u_div_r5f:divider|    ; 371 (371)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |numberAnalyzer|isPalindrome:ipn|lpm_divide:Mod0|lpm_divide_q9m:auto_generated|sign_div_unsign_olh:divider|alt_u_div_r5f:divider                       ; work         ;
+;       |lpm_divide:Mod1|                   ; 1060 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |numberAnalyzer|isPalindrome:ipn|lpm_divide:Mod1                                                                                                       ; work         ;
+;          |lpm_divide_bbm:auto_generated|  ; 1060 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |numberAnalyzer|isPalindrome:ipn|lpm_divide:Mod1|lpm_divide_bbm:auto_generated                                                                         ; work         ;
+;             |sign_div_unsign_9nh:divider| ; 1060 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |numberAnalyzer|isPalindrome:ipn|lpm_divide:Mod1|lpm_divide_bbm:auto_generated|sign_div_unsign_9nh:divider                                             ; work         ;
+;                |alt_u_div_t8f:divider|    ; 1060 (1060)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |numberAnalyzer|isPalindrome:ipn|lpm_divide:Mod1|lpm_divide_bbm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_t8f:divider                       ; work         ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |isPalindrome|currentState                                                                                                                                                                                                                             ;
+; State Machine - |numberAnalyzer|isPalindrome:ipn|currentState                                                                                                                                                                                                          ;
 +----------------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------------+
 ; Name                       ; currentState.STATE_9 ; currentState.STATE_8 ; currentState.STATE_7 ; currentState.STATE_6 ; currentState.STATE_5 ; currentState.STATE_4 ; currentState.STATE_3 ; currentState.STATE_2 ; currentState.STATE_1 ; currentState.STATE_Initial ;
 +----------------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------------+
@@ -271,79 +279,145 @@ Encoding Type:  One-Hot
 +----------------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------------+
 
 
-+----------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                ;
-+-----------------------------------------------------+---------------------+------------------------+
-; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
-+-----------------------------------------------------+---------------------+------------------------+
-; result$latch                                        ; WideOr11            ; yes                    ;
-; divisor[31]                                         ; WideOr10            ; yes                    ;
-; divisor[30]                                         ; WideOr10            ; yes                    ;
-; divisor[29]                                         ; WideOr10            ; yes                    ;
-; divisor[28]                                         ; WideOr10            ; yes                    ;
-; divisor[27]                                         ; WideOr10            ; yes                    ;
-; divisor[26]                                         ; WideOr10            ; yes                    ;
-; divisor[25]                                         ; WideOr10            ; yes                    ;
-; divisor[24]                                         ; WideOr10            ; yes                    ;
-; divisor[23]                                         ; WideOr10            ; yes                    ;
-; divisor[22]                                         ; WideOr10            ; yes                    ;
-; divisor[21]                                         ; WideOr10            ; yes                    ;
-; divisor[20]                                         ; WideOr10            ; yes                    ;
-; divisor[19]                                         ; WideOr10            ; yes                    ;
-; divisor[18]                                         ; WideOr10            ; yes                    ;
-; divisor[17]                                         ; WideOr10            ; yes                    ;
-; divisor[16]                                         ; WideOr10            ; yes                    ;
-; divisor[15]                                         ; WideOr10            ; yes                    ;
-; divisor[14]                                         ; WideOr10            ; yes                    ;
-; divisor[13]                                         ; WideOr10            ; yes                    ;
-; divisor[12]                                         ; WideOr10            ; yes                    ;
-; divisor[11]                                         ; WideOr10            ; yes                    ;
-; divisor[10]                                         ; WideOr10            ; yes                    ;
-; divisor[9]                                          ; WideOr10            ; yes                    ;
-; divisor[8]                                          ; WideOr10            ; yes                    ;
-; divisor[7]                                          ; WideOr10            ; yes                    ;
-; divisor[6]                                          ; WideOr10            ; yes                    ;
-; divisor[5]                                          ; WideOr10            ; yes                    ;
-; divisor[4]                                          ; WideOr10            ; yes                    ;
-; divisor[3]                                          ; WideOr10            ; yes                    ;
-; divisor[2]                                          ; WideOr10            ; yes                    ;
-; divisor[1]                                          ; WideOr10            ; yes                    ;
-; divisor[0]                                          ; WideOr10            ; yes                    ;
-; number_reg[31]                                      ; Selector45          ; yes                    ;
-; number_reg[30]                                      ; Selector45          ; yes                    ;
-; number_reg[0]                                       ; Selector45          ; yes                    ;
-; number_reg[1]                                       ; Selector45          ; yes                    ;
-; number_reg[2]                                       ; Selector45          ; yes                    ;
-; number_reg[3]                                       ; Selector45          ; yes                    ;
-; number_reg[4]                                       ; Selector45          ; yes                    ;
-; number_reg[5]                                       ; Selector45          ; yes                    ;
-; number_reg[6]                                       ; Selector45          ; yes                    ;
-; number_reg[7]                                       ; Selector45          ; yes                    ;
-; number_reg[8]                                       ; Selector45          ; yes                    ;
-; number_reg[9]                                       ; Selector45          ; yes                    ;
-; number_reg[10]                                      ; Selector45          ; yes                    ;
-; number_reg[11]                                      ; Selector45          ; yes                    ;
-; number_reg[12]                                      ; Selector45          ; yes                    ;
-; number_reg[13]                                      ; Selector45          ; yes                    ;
-; number_reg[14]                                      ; Selector45          ; yes                    ;
-; number_reg[15]                                      ; Selector45          ; yes                    ;
-; number_reg[16]                                      ; Selector45          ; yes                    ;
-; number_reg[17]                                      ; Selector45          ; yes                    ;
-; number_reg[18]                                      ; Selector45          ; yes                    ;
-; number_reg[19]                                      ; Selector45          ; yes                    ;
-; number_reg[20]                                      ; Selector45          ; yes                    ;
-; number_reg[21]                                      ; Selector45          ; yes                    ;
-; number_reg[22]                                      ; Selector45          ; yes                    ;
-; number_reg[23]                                      ; Selector45          ; yes                    ;
-; number_reg[24]                                      ; Selector45          ; yes                    ;
-; number_reg[25]                                      ; Selector45          ; yes                    ;
-; number_reg[26]                                      ; Selector45          ; yes                    ;
-; number_reg[27]                                      ; Selector45          ; yes                    ;
-; number_reg[28]                                      ; Selector45          ; yes                    ;
-; number_reg[29]                                      ; Selector45          ; yes                    ;
-; Number of user-specified and inferred latches = 65  ;                     ;                        ;
-+-----------------------------------------------------+---------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |numberAnalyzer|isFibonacci:ifn|currentState                                                                                                                                                                                    ;
++----------------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------------+----------------------+
+; Name                       ; currentState.STATE_7 ; currentState.STATE_6 ; currentState.STATE_5 ; currentState.STATE_4 ; currentState.STATE_3 ; currentState.STATE_2 ; currentState.STATE_1 ; currentState.STATE_Initial ; currentState.STATE_8 ;
++----------------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------------+----------------------+
+; currentState.STATE_Initial ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                          ; 0                    ;
+; currentState.STATE_1       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 1                          ; 0                    ;
+; currentState.STATE_2       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 1                          ; 0                    ;
+; currentState.STATE_3       ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 1                          ; 0                    ;
+; currentState.STATE_4       ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 1                          ; 0                    ;
+; currentState.STATE_5       ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                          ; 0                    ;
+; currentState.STATE_6       ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                          ; 0                    ;
+; currentState.STATE_7       ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                          ; 0                    ;
+; currentState.STATE_8       ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                          ; 1                    ;
++----------------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------------+----------------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |numberAnalyzer|isEvenNumber:ien|currentState                                                                ;
++----------------------------+----------------------+----------------------+----------------------+----------------------------+
+; Name                       ; currentState.STATE_3 ; currentState.STATE_2 ; currentState.STATE_1 ; currentState.STATE_Initial ;
++----------------------------+----------------------+----------------------+----------------------+----------------------------+
+; currentState.STATE_Initial ; 0                    ; 0                    ; 0                    ; 0                          ;
+; currentState.STATE_1       ; 0                    ; 0                    ; 1                    ; 1                          ;
+; currentState.STATE_2       ; 0                    ; 1                    ; 0                    ; 1                          ;
+; currentState.STATE_3       ; 1                    ; 0                    ; 0                    ; 1                          ;
++----------------------------+----------------------+----------------------+----------------------+----------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                         ;
++------------------------------------------------------+---------------------------------------------+------------------------+
+; Latch Name                                           ; Latch Enable Signal                         ; Free of Timing Hazards ;
++------------------------------------------------------+---------------------------------------------+------------------------+
+; isEvenNumber:ien|result                              ; isEvenNumber:ien|currentState.STATE_Initial ; yes                    ;
+; isFibonacci:ifn|result                               ; isFibonacci:ifn|WideOr13                    ; yes                    ;
+; isPalindrome:ipn|result                              ; isPalindrome:ipn|WideOr11                   ; yes                    ;
+; isFibonacci:ifn|res[0]                               ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[1]                               ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[2]                               ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[3]                               ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[4]                               ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[5]                               ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[6]                               ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[7]                               ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[8]                               ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[9]                               ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[10]                              ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[11]                              ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[12]                              ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[13]                              ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[14]                              ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[15]                              ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[16]                              ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[17]                              ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[18]                              ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[19]                              ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[20]                              ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[21]                              ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[22]                              ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[23]                              ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[24]                              ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[25]                              ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[26]                              ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[27]                              ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[28]                              ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[29]                              ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[30]                              ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isFibonacci:ifn|res[31]                              ; isFibonacci:ifn|WideOr12                    ; yes                    ;
+; isPalindrome:ipn|number_reg[0]                       ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|divisor[31]                         ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|number_reg[1]                       ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|divisor[30]                         ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|number_reg[2]                       ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|divisor[29]                         ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|number_reg[3]                       ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|divisor[28]                         ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[27]                         ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[26]                         ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[25]                         ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[24]                         ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[23]                         ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[22]                         ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[21]                         ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[20]                         ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[19]                         ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[18]                         ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[17]                         ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[16]                         ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[15]                         ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[14]                         ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[13]                         ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[12]                         ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[11]                         ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[10]                         ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[9]                          ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[8]                          ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[7]                          ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[6]                          ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[5]                          ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[4]                          ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[3]                          ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[2]                          ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[1]                          ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|divisor[0]                          ; isPalindrome:ipn|WideOr10                   ; yes                    ;
+; isPalindrome:ipn|number_reg[31]                      ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[30]                      ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[4]                       ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[5]                       ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[6]                       ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[7]                       ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[8]                       ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[9]                       ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[10]                      ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[11]                      ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[12]                      ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[13]                      ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[14]                      ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[15]                      ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[16]                      ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[17]                      ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[18]                      ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[19]                      ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[20]                      ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[21]                      ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[22]                      ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[23]                      ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[24]                      ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[25]                      ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[26]                      ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[27]                      ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[28]                      ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isPalindrome:ipn|number_reg[29]                      ; isPalindrome:ipn|Selector45                 ; yes                    ;
+; isFibonacci:ifn|fib1[0]                              ; isFibonacci:ifn|WideOr10                    ; yes                    ;
+; Number of user-specified and inferred latches = 163  ;                                             ;                        ;
++------------------------------------------------------+---------------------------------------------+------------------------+
+Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------------+
@@ -351,11 +425,16 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +---------------------------------------+--------------------+
 ; Register name                         ; Reason for Removal ;
 +---------------------------------------+--------------------+
-; currentState~2                        ; Lost fanout        ;
-; currentState~3                        ; Lost fanout        ;
-; currentState~4                        ; Lost fanout        ;
-; currentState~5                        ; Lost fanout        ;
-; Total Number of Removed Registers = 4 ;                    ;
+; isPalindrome:ipn|currentState~2       ; Lost fanout        ;
+; isPalindrome:ipn|currentState~3       ; Lost fanout        ;
+; isPalindrome:ipn|currentState~4       ; Lost fanout        ;
+; isPalindrome:ipn|currentState~5       ; Lost fanout        ;
+; isFibonacci:ifn|currentState~2        ; Lost fanout        ;
+; isFibonacci:ifn|currentState~3        ; Lost fanout        ;
+; isFibonacci:ifn|currentState~4        ; Lost fanout        ;
+; isEvenNumber:ien|currentState~2       ; Lost fanout        ;
+; isEvenNumber:ien|currentState~3       ; Lost fanout        ;
+; Total Number of Removed Registers = 9 ;                    ;
 +---------------------------------------+--------------------+
 
 
@@ -364,8 +443,8 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 10    ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 23    ;
+; Number of registers using Synchronous Clear  ; 3     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -374,127 +453,127 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 3:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; No         ; |isPalindrome|Selector0    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; 3:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; No         ; |numberAnalyzer|isPalindrome:ipn|Selector32 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_divide:Div0 ;
-+------------------------+----------------+------------------------+
-; Parameter Name         ; Value          ; Type                   ;
-+------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
-; LPM_WIDTHD             ; 32             ; Untyped                ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
-; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_8jm ; Untyped                ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
-+------------------------+----------------+------------------------+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: isPalindrome:ipn|lpm_divide:Div0 ;
++------------------------+----------------+-----------------------------------------+
+; Parameter Name         ; Value          ; Type                                    ;
++------------------------+----------------+-----------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                 ;
+; LPM_WIDTHD             ; 32             ; Untyped                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
+; CBXI_PARAMETER         ; lpm_divide_8jm ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
++------------------------+----------------+-----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0 ;
-+------------------------+----------------+------------------------+
-; Parameter Name         ; Value          ; Type                   ;
-+------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
-; LPM_WIDTHD             ; 4              ; Untyped                ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
-; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_q9m ; Untyped                ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
-+------------------------+----------------+------------------------+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: isPalindrome:ipn|lpm_divide:Mod0 ;
++------------------------+----------------+-----------------------------------------+
+; Parameter Name         ; Value          ; Type                                    ;
++------------------------+----------------+-----------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
+; CBXI_PARAMETER         ; lpm_divide_q9m ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
++------------------------+----------------+-----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_divide:Div2 ;
-+------------------------+----------------+------------------------+
-; Parameter Name         ; Value          ; Type                   ;
-+------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
-; LPM_WIDTHD             ; 7              ; Untyped                ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
-; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_qhm ; Untyped                ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
-+------------------------+----------------+------------------------+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: isPalindrome:ipn|lpm_divide:Div2 ;
++------------------------+----------------+-----------------------------------------+
+; Parameter Name         ; Value          ; Type                                    ;
++------------------------+----------------+-----------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                 ;
+; LPM_WIDTHD             ; 7              ; Untyped                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
+; CBXI_PARAMETER         ; lpm_divide_qhm ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
++------------------------+----------------+-----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1 ;
-+------------------------+----------------+------------------------+
-; Parameter Name         ; Value          ; Type                   ;
-+------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
-; LPM_WIDTHD             ; 32             ; Untyped                ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
-; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_bbm ; Untyped                ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
-+------------------------+----------------+------------------------+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: isPalindrome:ipn|lpm_divide:Mod1 ;
++------------------------+----------------+-----------------------------------------+
+; Parameter Name         ; Value          ; Type                                    ;
++------------------------+----------------+-----------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                 ;
+; LPM_WIDTHD             ; 32             ; Untyped                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
+; CBXI_PARAMETER         ; lpm_divide_bbm ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
++------------------------+----------------+-----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_divide:Div1 ;
-+------------------------+----------------+------------------------+
-; Parameter Name         ; Value          ; Type                   ;
-+------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 32             ; Untyped                ;
-; LPM_WIDTHD             ; 4              ; Untyped                ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
-; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_nhm ; Untyped                ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
-+------------------------+----------------+------------------------+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: isPalindrome:ipn|lpm_divide:Div1 ;
++------------------------+----------------+-----------------------------------------+
+; Parameter Name         ; Value          ; Type                                    ;
++------------------------+----------------+-----------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                 ;
+; CBXI_PARAMETER         ; lpm_divide_nhm ; Untyped                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                          ;
++------------------------+----------------+-----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -503,7 +582,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:12     ;
+; Top            ; 00:00:14     ;
 +----------------+--------------+
 
 
@@ -513,7 +592,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon Jun 08 03:28:02 2020
+    Info: Processing started: Mon Jun 08 05:04:20 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off verilog_project2 -c verilog_project2
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file isevennumber.v
@@ -528,7 +607,118 @@ Info (12021): Found 1 design units, including 1 entities, in source file ispalin
     Info (12023): Found entity 1: isPalindrome
 Info (12021): Found 1 design units, including 1 entities, in source file ispalindrometestbench.v
     Info (12023): Found entity 1: isPalindromeTestBench
-Info (12127): Elaborating entity "isPalindrome" for the top level hierarchy
+Info (12021): Found 1 design units, including 1 entities, in source file numberanalyzer.v
+    Info (12023): Found entity 1: numberAnalyzer
+Info (12021): Found 1 design units, including 1 entities, in source file numberanalyzertestbench.v
+    Info (12023): Found entity 1: numberAnalyzerTestBench
+Warning (10236): Verilog HDL Implicit Net warning at numberAnalyzerTestBench.v(30): created implicit net for "stuckStatePalindromenumber"
+Info (12127): Elaborating entity "numberAnalyzer" for the top level hierarchy
+Info (12128): Elaborating entity "isEvenNumber" for hierarchy "isEvenNumber:ien"
+Warning (10240): Verilog HDL Always Construct warning at isEvenNumber.v(34): inferring latch(es) for variable "result", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "result" at isEvenNumber.v(34)
+Info (12128): Elaborating entity "isFibonacci" for hierarchy "isFibonacci:ifn"
+Warning (10240): Verilog HDL Always Construct warning at isFibonacci.v(41): inferring latch(es) for variable "fib1", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at isFibonacci.v(41): inferring latch(es) for variable "fib2", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at isFibonacci.v(41): inferring latch(es) for variable "res", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at isFibonacci.v(41): inferring latch(es) for variable "result", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "result" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[0]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[1]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[2]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[3]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[4]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[5]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[6]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[7]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[8]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[9]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[10]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[11]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[12]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[13]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[14]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[15]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[16]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[17]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[18]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[19]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[20]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[21]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[22]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[23]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[24]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[25]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[26]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[27]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[28]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[29]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[30]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "res[31]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[0]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[1]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[2]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[3]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[4]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[5]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[6]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[7]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[8]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[9]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[10]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[11]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[12]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[13]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[14]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[15]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[16]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[17]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[18]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[19]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[20]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[21]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[22]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[23]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[24]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[25]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[26]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[27]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[28]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[29]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[30]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib2[31]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[0]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[1]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[2]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[3]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[4]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[5]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[6]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[7]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[8]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[9]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[10]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[11]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[12]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[13]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[14]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[15]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[16]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[17]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[18]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[19]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[20]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[21]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[22]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[23]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[24]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[25]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[26]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[27]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[28]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[29]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[30]" at isFibonacci.v(41)
+Info (10041): Inferred latch for "fib1[31]" at isFibonacci.v(41)
+Info (12128): Elaborating entity "isPalindrome" for hierarchy "isPalindrome:ipn"
 Warning (10240): Verilog HDL Always Construct warning at isPalindrome.v(44): inferring latch(es) for variable "number_reg", which holds its previous value in one or more paths through the always construct
 Warning (10240): Verilog HDL Always Construct warning at isPalindrome.v(44): inferring latch(es) for variable "divisor", which holds its previous value in one or more paths through the always construct
 Warning (10240): Verilog HDL Always Construct warning at isPalindrome.v(44): inferring latch(es) for variable "leading", which holds its previous value in one or more paths through the always construct
@@ -600,13 +790,13 @@ Info (10041): Inferred latch for "number_reg[29]" at isPalindrome.v(44)
 Info (10041): Inferred latch for "number_reg[30]" at isPalindrome.v(44)
 Info (10041): Inferred latch for "number_reg[31]" at isPalindrome.v(44)
 Info (278001): Inferred 5 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0"
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0"
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div2"
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod1"
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div1"
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0"
-Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter:
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "isPalindrome:ipn|Div0"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "isPalindrome:ipn|Mod0"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "isPalindrome:ipn|Div2"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "isPalindrome:ipn|Mod1"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "isPalindrome:ipn|Div1"
+Info (12130): Elaborated megafunction instantiation "isPalindrome:ipn|lpm_divide:Div0"
+Info (12133): Instantiated megafunction "isPalindrome:ipn|lpm_divide:Div0" with the following parameter:
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -621,8 +811,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/add_
     Info (12023): Found entity 1: add_sub_unc
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_vnc.tdf
     Info (12023): Found entity 1: add_sub_vnc
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0"
-Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter:
+Info (12130): Elaborated megafunction instantiation "isPalindrome:ipn|lpm_divide:Mod0"
+Info (12133): Instantiated megafunction "isPalindrome:ipn|lpm_divide:Mod0" with the following parameter:
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -633,8 +823,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_olh
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_r5f.tdf
     Info (12023): Found entity 1: alt_u_div_r5f
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Div2"
-Info (12133): Instantiated megafunction "lpm_divide:Div2" with the following parameter:
+Info (12130): Elaborated megafunction instantiation "isPalindrome:ipn|lpm_divide:Div2"
+Info (12133): Instantiated megafunction "isPalindrome:ipn|lpm_divide:Div2" with the following parameter:
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "7"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -645,164 +835,358 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_rlh
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_16f.tdf
     Info (12023): Found entity 1: alt_u_div_16f
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod1"
-Info (12133): Instantiated megafunction "lpm_divide:Mod1" with the following parameter:
+Info (12130): Elaborated megafunction instantiation "isPalindrome:ipn|lpm_divide:Mod1"
+Info (12133): Instantiated megafunction "isPalindrome:ipn|lpm_divide:Mod1" with the following parameter:
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_bbm.tdf
     Info (12023): Found entity 1: lpm_divide_bbm
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Div1"
-Info (12133): Instantiated megafunction "lpm_divide:Div1" with the following parameter:
+Info (12130): Elaborated megafunction instantiation "isPalindrome:ipn|lpm_divide:Div1"
+Info (12133): Instantiated megafunction "isPalindrome:ipn|lpm_divide:Div1" with the following parameter:
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_nhm.tdf
     Info (12023): Found entity 1: lpm_divide_nhm
-Warning (13012): Latch result$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_9
-Warning (13012): Latch divisor[31] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
-Warning (13012): Latch divisor[30] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
-Warning (13012): Latch divisor[29] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
-Warning (13012): Latch divisor[28] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
-Warning (13012): Latch divisor[27] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
-Warning (13012): Latch divisor[26] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_3
-Warning (13012): Latch divisor[25] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[24] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[23] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[22] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[21] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[20] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[19] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[18] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[17] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[16] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[15] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[14] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[13] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[12] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[11] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[10] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[9] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[8] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[7] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[6] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[5] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[4] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[3] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[2] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[1] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_8
-Warning (13012): Latch divisor[0] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_1
-Warning (13012): Latch number_reg[31] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[30] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[0] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[1] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[2] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[3] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[4] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[5] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[6] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[7] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[8] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[9] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[10] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[11] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[12] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[13] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[14] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[15] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[16] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[17] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[18] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[19] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[20] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[21] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[22] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[23] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[24] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[25] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[26] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[27] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[28] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
-Warning (13012): Latch number_reg[29] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal currentState.STATE_7
+Warning (13012): Latch isFibonacci:ifn|result has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|result has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_9
+Warning (13012): Latch isFibonacci:ifn|res[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[9] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[10] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[11] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[12] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[13] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[14] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[15] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[16] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[17] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[18] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[19] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[20] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[21] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[22] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[23] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[24] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[25] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[26] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[27] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[28] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[29] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[30] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isFibonacci:ifn|res[31] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_3
+Warning (13012): Latch isPalindrome:ipn|number_reg[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|divisor[31] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_3
+Warning (13012): Latch isPalindrome:ipn|number_reg[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|divisor[30] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_3
+Warning (13012): Latch isPalindrome:ipn|number_reg[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|divisor[29] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_3
+Warning (13012): Latch isPalindrome:ipn|number_reg[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|divisor[28] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_3
+Warning (13012): Latch isPalindrome:ipn|divisor[27] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_3
+Warning (13012): Latch isPalindrome:ipn|divisor[26] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_3
+Warning (13012): Latch isPalindrome:ipn|divisor[25] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[24] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[23] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[22] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[21] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[20] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[19] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[18] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[17] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[16] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[15] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[14] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[13] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[12] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[11] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[10] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[9] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_8
+Warning (13012): Latch isPalindrome:ipn|divisor[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_1
+Warning (13012): Latch isPalindrome:ipn|number_reg[31] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[30] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[9] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[10] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[11] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[12] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[13] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[14] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[15] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[16] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[17] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[18] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[19] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[20] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[21] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[22] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[23] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[24] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[25] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[26] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[27] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[28] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isPalindrome:ipn|number_reg[29] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isPalindrome:ipn|currentState.STATE_7
+Warning (13012): Latch isFibonacci:ifn|fib1[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[9] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[9] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[10] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[10] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[11] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[11] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[12] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[12] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[13] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[13] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[14] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[14] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[15] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[15] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[16] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[16] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[17] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[17] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[18] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[18] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[19] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[19] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[20] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[20] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[21] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[21] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[22] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[22] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[23] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[23] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[24] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[24] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[25] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[25] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[26] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[26] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[27] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[27] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[28] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[28] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[29] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[29] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[30] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[30] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
+Warning (13012): Latch isFibonacci:ifn|fib1[31] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_4
+Warning (13012): Latch isFibonacci:ifn|fib2[31] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal isFibonacci:ifn|currentState.STATE_5
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (17049): 9 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 3670 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3989 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 35 input pins
-    Info (21059): Implemented 5 output pins
-    Info (21061): Implemented 3630 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 136 warnings
-    Info: Peak virtual memory: 4641 megabytes
-    Info: Processing ended: Mon Jun 08 03:28:16 2020
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:14
+    Info (21059): Implemented 13 output pins
+    Info (21061): Implemented 3941 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 336 warnings
+    Info: Peak virtual memory: 4637 megabytes
+    Info: Processing ended: Mon Jun 08 05:04:36 2020
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:16
 
 

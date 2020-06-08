@@ -10,31 +10,61 @@
 # ** Warning: Copied C:\altera\13.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
 #          Updated modelsim.ini.
 # 
+# vlog -vlog01compat -work work +incdir+C:/Users/DELL/Desktop/NumberAnalyzer {C:/Users/DELL/Desktop/NumberAnalyzer/isEvenNumber.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module isEvenNumber
+# 
+# Top level modules:
+# 	isEvenNumber
+# vlog -vlog01compat -work work +incdir+C:/Users/DELL/Desktop/NumberAnalyzer {C:/Users/DELL/Desktop/NumberAnalyzer/isFibonacci.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module isFibonacci
+# 
+# Top level modules:
+# 	isFibonacci
 # vlog -vlog01compat -work work +incdir+C:/Users/DELL/Desktop/NumberAnalyzer {C:/Users/DELL/Desktop/NumberAnalyzer/isPalindrome.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module isPalindrome
 # 
 # Top level modules:
 # 	isPalindrome
-# 
-vlog -reportprogress 300 -work work C:/Users/DELL/Desktop/NumberAnalyzer/isPalindromeTestBench.v
+# vlog -vlog01compat -work work +incdir+C:/Users/DELL/Desktop/NumberAnalyzer {C:/Users/DELL/Desktop/NumberAnalyzer/numberAnalyzer.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module isPalindromeTestBench
+# -- Compiling module numberAnalyzer
 # 
 # Top level modules:
-# 	isPalindromeTestBench
-vsim work.isPalindromeTestBench
-# vsim work.isPalindromeTestBench 
-# Loading work.isPalindromeTestBench
+# 	numberAnalyzer
+# 
+vlog -reportprogress 300 -work work C:/Users/DELL/Desktop/NumberAnalyzer/numberAnalyzerTestBench.v
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module numberAnalyzerTestBench
+# 
+# Top level modules:
+# 	numberAnalyzerTestBench
+vsim work.numberAnalyzerTestBench
+# vsim work.numberAnalyzerTestBench 
+# Loading work.numberAnalyzerTestBench
+# Loading work.numberAnalyzer
+# Loading work.isEvenNumber
+# Loading work.isFibonacci
 # Loading work.isPalindrome
 add wave -position insertpoint  \
-sim:/isPalindromeTestBench/result \
-sim:/isPalindromeTestBench/stuckState \
-sim:/isPalindromeTestBench/clk \
-sim:/isPalindromeTestBench/reset \
-sim:/isPalindromeTestBench/go_i \
-sim:/isPalindromeTestBench/number \
-sim:/isPalindromeTestBench/counter
+sim:/numberAnalyzerTestBench/counter1 \
+sim:/numberAnalyzerTestBench/counter2 \
+sim:/numberAnalyzerTestBench/counter3 \
+sim:/numberAnalyzerTestBench/clk \
+sim:/numberAnalyzerTestBench/reset \
+sim:/numberAnalyzerTestBench/go_i \
+sim:/numberAnalyzerTestBench/number \
+sim:/numberAnalyzerTestBench/isEven \
+sim:/numberAnalyzerTestBench/isFibonacci \
+sim:/numberAnalyzerTestBench/isPalindrome \
+sim:/numberAnalyzerTestBench/stuckStateEven \
+sim:/numberAnalyzerTestBench/stuckStateFibonacci \
+sim:/numberAnalyzerTestBench/stuckStatePalindrome
 step -current
-# result: 0
+#                             2002 is an even number
+#                             2002 is not a fibonacci number
+#                             2002 is a palindrome number
 # Break key hit 
+# Simulation stop requested.
