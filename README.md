@@ -78,5 +78,9 @@ Its finite state machine is as follows:
 
 ![image](https://user-images.githubusercontent.com/23126077/84059847-eaba0d80-a9c3-11ea-9ca3-a79ab9749886.png)
 
+## Results
+
+![image](https://user-images.githubusercontent.com/23126077/84060250-8e0b2280-a9c4-11ea-9bcb-13df0effce3c.png)
+
 ## Built With
 * [Quartus 13.1 Web Pack Edition with Cyclone III](http://fpgasoftware.intel.com/13.1/?edition=web)
