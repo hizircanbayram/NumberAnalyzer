@@ -3,44 +3,44 @@ K3
 13
 cModel Technology
 Z0 dC:\Users\DELL\Desktop\NumberAnalyzer\simulation\modelsim
-visFibonacci
-IkbUQaT159]9O2JzDIQUlH3
-VG_`hn`51E[[Jcek[L?<TI1
+visPalindrome
+Igfe8aYldV2eaGez1CeeNQ1
+VST7]M7Dd7hg3@Y=O@QXz:1
 Z1 dC:\Users\DELL\Desktop\NumberAnalyzer\simulation\modelsim
-w1591558315
-8C:/Users/DELL/Desktop/NumberAnalyzer/isFibonacci.v
-FC:/Users/DELL/Desktop/NumberAnalyzer/isFibonacci.v
+w1591576010
+8C:/Users/DELL/Desktop/NumberAnalyzer/isPalindrome.v
+FC:/Users/DELL/Desktop/NumberAnalyzer/isPalindrome.v
 L0 1
 Z2 OV;L;10.1d;51
 r1
 31
 o-vlog01compat -work work -O0
-nis@fibonacci
+nis@palindrome
 !i10b 1
-!s100 5RDZV3K<`ZgS8kk;Lf4J90
+!s100 j9a]FmU@O6zi;]h`f8I2?3
 !s85 0
-!s108 1591560477.920000
-!s107 C:/Users/DELL/Desktop/NumberAnalyzer/isFibonacci.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL/Desktop/NumberAnalyzer|C:/Users/DELL/Desktop/NumberAnalyzer/isFibonacci.v|
+!s108 1591576211.889000
+!s107 C:/Users/DELL/Desktop/NumberAnalyzer/isPalindrome.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/DELL/Desktop/NumberAnalyzer|C:/Users/DELL/Desktop/NumberAnalyzer/isPalindrome.v|
 !s101 -O0
 !s92 -vlog01compat -work work +incdir+C:/Users/DELL/Desktop/NumberAnalyzer -O0
-visFibonacciTestBench
+visPalindromeTestBench
 !i10b 1
-!s100 LPnTH_oCn0Q[000gI<AOD2
-IISdG9?]m1^HeC19z=oCh30
-V4ni=7O`mcMZY^]:l3=Z8R3
+!s100 WUZXbY;dT`0P1KR^Db9lA1
+I_38MYLDlN^2=9BKW;=9o<0
+V@IZ]iV3g1o54Oo?bXmFn43
 R1
-w1591560464
-8C:/Users/DELL/Desktop/NumberAnalyzer/isFibonacciTestBench.v
-FC:/Users/DELL/Desktop/NumberAnalyzer/isFibonacciTestBench.v
+w1591576202
+8C:/Users/DELL/Desktop/NumberAnalyzer/isPalindromeTestBench.v
+FC:/Users/DELL/Desktop/NumberAnalyzer/isPalindromeTestBench.v
 L0 3
 R2
 r1
 !s85 0
 31
-!s108 1591560485.080000
-!s107 C:/Users/DELL/Desktop/NumberAnalyzer/isFibonacciTestBench.v|
-!s90 -reportprogress|300|-work|work|C:/Users/DELL/Desktop/NumberAnalyzer/isFibonacciTestBench.v|
+!s108 1591576219.774000
+!s107 C:/Users/DELL/Desktop/NumberAnalyzer/isPalindromeTestBench.v|
+!s90 -reportprogress|300|-work|work|C:/Users/DELL/Desktop/NumberAnalyzer/isPalindromeTestBench.v|
 !s101 -O0
 o-work work -O0
-nis@fibonacci@test@bench
+nis@palindrome@test@bench
